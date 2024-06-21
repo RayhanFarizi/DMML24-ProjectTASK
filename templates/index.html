@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Revenue Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Restaurant Revenue Prediction</h2>
+        <form action="{{ url_for('predict') }}" method="post">
+            <label for="Number_of_Customers">Number of Customers:</label>
+            <input type="number" id="Number_of_Customers" name="Number_of_Customers" required><br><br>
+
+            <label for="Menu_Price">Menu Price:</label>
+            <input type="number" id="Menu_Price" name="Menu_Price" step="any" required><br><br>
+
+            <label for="Marketing_Spend">Marketing Spend:</label>
+            <input type="number" id="Marketing_Spend" name="Marketing_Spend" step="any" required><br><br>
+
+            <label for="Cuisine_Type">Cuisine Type:</label>
+            <select id="Cuisine_Type" name="Cuisine_Type" required>
+                <option value="1">Italian</option>
+                <option value="2">Japanese</option>
+                <option value="3">Mexican</option>
+                <option value="4">American</option>
+            </select><br><br>
+
+            <label for="Average_Customer_Spending">Average Customer Spending:</label>
+            <input type="number" id="Average_Customer_Spending" name="Average_Customer_Spending" step="any" required><br><br>
+
+            <label for="Promotions">Promotions:</label>
+            <select id="Promotions" name="Promotions" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select><br><br>
+
+            <label for="Reviews">Reviews:</label>
+            <input type="number" id="Reviews" name="Reviews" required><br><br>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+        <div class="prediction">
+            <h3>Prediction Results</h3>
+            <p>Linear Regression Prediction: ${{ prediction['Linear_Regression_Prediction'] }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
