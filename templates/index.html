@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis</h1>
+        <form action="/predict" method="post">
+            <textarea name="review" placeholder="Enter your review here..."></textarea>
+            <br>
+            <input type="submit" value="Predict Sentiment">
+        </form>
+    </div>
+    <div class="result-container">
+        {% if review and sentiment %}
+        {% if sentiment == 'Positive' %}
+            <img src="{{ url_for('static', filename='thump.png') }}" alt="Thumb Up Emoji" style="max-width: 300px; height: auto;">
+            <p style="color: white; text-align: center;">positive</p>
+        {% elif sentiment == 'Negative' %}
+            <img src="{{ url_for('static', filename='down.png') }}" alt="Thumb Down Emoji" style="max-width: 300px; height: auto;">
+            <p style="color: white; text-align: center;">negative</p>
+        {% endif %}
+        {% else %}
+        <img id="loading-gif" src="{{ url_for('static', filename='tumblr.webp') }}" alt="Loading GIF" style="max-width: 300px; display: block; margin: 0 auto;">
+    {% endif %}
+        </div>
+    </div>
+    
+</body>
+</html>
