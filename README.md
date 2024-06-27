@@ -11,3 +11,11 @@ Kelompok 14 :
 3. To run it, open terminal in the folder that has been cloned and run the app.py
    ```sh
    python app.py
+
+# Application Display
+
+![gambar](static/Web1.png)
+
+![gambar](static/Web2.png)
+
+![gambar](static/Web3.png)
