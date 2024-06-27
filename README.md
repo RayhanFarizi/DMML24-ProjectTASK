@@ -8,6 +8,6 @@ Kelompok 14 :
    ```sh
    git clone <url-repositori-hasil-fork>
 2. or you can just download it
-3. To run it, open the terminal that has been cloned and run the app.py
+3. To run it, open terminal in the folder that has been cloned and run the app.py
    ```sh
    python app.py
